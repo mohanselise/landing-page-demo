@@ -2,6 +2,7 @@
 
 import { useState, useCallback, DragEvent } from 'react';
 import { useRouter } from 'next/navigation';
+import { Zap, Upload, CheckCircle, FileText, Smartphone, ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   const [isDragOver, setIsDragOver] = useState(false);
@@ -129,25 +130,21 @@ export default function Hero() {
             </div>
 
             {/* Enhanced CTAs */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up animation-delay-600">
+            <div className="flex flex-col gap-4 sm:gap-6 justify-center items-center animate-fade-in-up animation-delay-600">
               <button 
                 onClick={() => document.getElementById('file-input')?.click()}
-                className="group relative bg-gradient-to-r from-selise-blue to-selise-blue-dark text-selise-white px-10 py-5 rounded-2xl font-subhead text-lg overflow-hidden transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-selise-blue focus:ring-offset-2 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95"
+                className="group relative bg-gradient-to-r from-selise-blue to-selise-blue-dark text-selise-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl font-subhead text-base sm:text-lg overflow-hidden transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-selise-blue focus:ring-offset-2 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 w-full sm:w-auto"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-selise-blue-dark to-selise-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative flex items-center gap-2">
-                  <svg className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
+                <span className="relative flex items-center justify-center gap-2">
+                  <Zap className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
                   Try It Free Now
                 </span>
               </button>
               
-              <div className="flex items-center text-selise-grey font-body opacity-70 hover:opacity-100 transition-all duration-300 group">
+              <div className="flex items-center text-selise-grey font-body opacity-70 hover:opacity-100 transition-all duration-300 group text-center sm:text-left">
                 <span className="group-hover:scale-105 transition-transform duration-300">Or just drag & drop your file</span>
-                <svg className="w-5 h-5 ml-2 text-selise-blue animate-bounce-x group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+                <ArrowRight className="w-4 h-4 ml-2 text-selise-blue animate-bounce-x group-hover:translate-x-1 transition-transform duration-300" />
               </div>
             </div>
           </div>
@@ -159,7 +156,7 @@ export default function Hero() {
               onDragLeave={handleDragLeave}
               onDrop={handleDrop}
               className={`
-                relative border-2 border-dashed rounded-3xl p-12 sm:p-20 text-center transition-all duration-500 w-full group backdrop-blur-sm
+                relative border-2 border-dashed rounded-3xl p-8 sm:p-12 lg:p-20 text-center transition-all duration-500 w-full group backdrop-blur-sm
                 ${isDragOver 
                   ? 'border-selise-blue bg-gradient-to-br from-selise-blue-light/60 to-selise-lime-green-light/40 shadow-2xl scale-[1.02] rotate-1' 
                   : 'border-selise-grey/60 bg-white/80 hover:border-selise-blue hover:bg-white/90 hover:shadow-xl hover:scale-[1.01]'
@@ -177,34 +174,30 @@ export default function Hero() {
                 aria-label="Choose file to upload"
               />
 
-              <div className="space-y-10">
-                <div className="mx-auto w-36 h-36 bg-gradient-to-br from-selise-blue/10 to-selise-lime-green/10 rounded-full flex items-center justify-center group-hover:from-selise-blue/20 group-hover:to-selise-lime-green/20 transition-all duration-500 group-hover:scale-110 relative">
+              <div className="space-y-8 sm:space-y-10">
+                <div className="mx-auto w-28 h-28 sm:w-36 sm:h-36 bg-gradient-to-br from-selise-blue/10 to-selise-lime-green/10 rounded-full flex items-center justify-center group-hover:from-selise-blue/20 group-hover:to-selise-lime-green/20 transition-all duration-500 group-hover:scale-110 relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-selise-blue/5 to-selise-lime-green/5 rounded-full animate-pulse"></div>
-                  <svg className="relative w-20 h-20 text-selise-blue group-hover:animate-bounce transition-colors duration-300 group-hover:text-selise-lime-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                  </svg>
+                  <Upload className="relative w-16 h-16 sm:w-20 sm:h-20 text-selise-blue group-hover:animate-bounce transition-colors duration-300 group-hover:text-selise-lime-green" />
                 </div>
 
                 {isUploading ? (
                   <div className="space-y-6">
-                    <div className="font-subhead text-2xl text-selise-blue">Uploading your document...</div>
+                    <div className="font-subhead text-xl sm:text-2xl text-selise-blue">Uploading your document...</div>
                     <div className="w-full max-w-md mx-auto bg-selise-grey-light rounded-full h-4 overflow-hidden">
                       <div className="bg-gradient-to-r from-selise-blue to-selise-lime-green h-4 rounded-full animate-pulse transition-all duration-1000" style={{ width: '60%' }}></div>
                     </div>
                     <p className="text-selise-grey font-body">Processing your file securely...</p>
                   </div>
                 ) : (
-                  <div className="space-y-6">
-                    <div className="font-subhead text-3xl sm:text-4xl text-selise-black mb-2 group-hover:text-selise-blue transition-colors duration-300">
+                  <div className="space-y-4 sm:space-y-6">
+                    <div className="font-subhead text-2xl sm:text-3xl lg:text-4xl text-selise-black mb-2 group-hover:text-selise-blue transition-colors duration-300">
                       Drop your PDF here
                     </div>
-                    <div className="font-body text-xl text-selise-grey group-hover:text-selise-black transition-colors duration-300">
+                    <div className="font-body text-lg sm:text-xl text-selise-grey group-hover:text-selise-black transition-colors duration-300">
                       or click anywhere in this area to choose a file
                     </div>
                     <div className="inline-flex items-center gap-2 bg-selise-grey-light/50 px-4 py-2 rounded-full font-body text-sm text-selise-grey">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
+                      <CheckCircle className="w-4 h-4" />
                       Supports PDF, DOC, DOCX up to 200MB
                     </div>
                   </div>
@@ -214,30 +207,24 @@ export default function Hero() {
           </div>
 
           {/* Enhanced Trust Badges */}
-          <div className="flex flex-wrap justify-center gap-8 sm:gap-12 text-sm text-selise-grey font-body max-w-4xl mx-auto">
-            <span className="flex items-center gap-3 hover:text-selise-lime-green transition-colors duration-300 group animate-fade-in-up animation-delay-800 bg-white/70 px-4 py-2 rounded-full backdrop-blur-sm border border-white/40">
-              <div className="w-8 h-8 bg-selise-lime-green/10 rounded-full flex items-center justify-center group-hover:bg-selise-lime-green/20 transition-colors duration-300">
-                <svg className="w-4 h-4 text-selise-lime-green group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 lg:gap-12 text-sm text-selise-grey font-body max-w-4xl mx-auto">
+            <span className="flex items-center gap-3 hover:text-selise-lime-green transition-colors duration-300 group animate-fade-in-up animation-delay-800 bg-white/70 px-4 py-3 rounded-full backdrop-blur-sm border border-white/40 justify-center">
+              <div className="w-8 h-8 bg-selise-lime-green/10 rounded-full flex items-center justify-center group-hover:bg-selise-lime-green/20 transition-colors duration-300 flex-shrink-0">
+                <CheckCircle className="w-4 h-4 text-selise-lime-green group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <span className="font-subhead">EU eIDAS & Swiss ZertES compliant</span>
+              <span className="font-subhead text-center sm:text-left">EU eIDAS & Swiss ZertES compliant</span>
             </span>
-            <span className="flex items-center gap-3 hover:text-selise-lime-green transition-colors duration-300 group animate-fade-in-up animation-delay-900 bg-white/70 px-4 py-2 rounded-full backdrop-blur-sm border border-white/40">
-              <div className="w-8 h-8 bg-selise-lime-green/10 rounded-full flex items-center justify-center group-hover:bg-selise-lime-green/20 transition-colors duration-300">
-                <svg className="w-4 h-4 text-selise-lime-green group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                </svg>
+            <span className="flex items-center gap-3 hover:text-selise-lime-green transition-colors duration-300 group animate-fade-in-up animation-delay-900 bg-white/70 px-4 py-3 rounded-full backdrop-blur-sm border border-white/40 justify-center">
+              <div className="w-8 h-8 bg-selise-lime-green/10 rounded-full flex items-center justify-center group-hover:bg-selise-lime-green/20 transition-colors duration-300 flex-shrink-0">
+                <FileText className="w-4 h-4 text-selise-lime-green group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <span className="font-subhead">Audit trail included</span>
+              <span className="font-subhead text-center sm:text-left">Audit trail included</span>
             </span>
-            <span className="flex items-center gap-3 hover:text-selise-lime-green transition-colors duration-300 group animate-fade-in-up animation-delay-1000 bg-white/70 px-4 py-2 rounded-full backdrop-blur-sm border border-white/40">
-              <div className="w-8 h-8 bg-selise-lime-green/10 rounded-full flex items-center justify-center group-hover:bg-selise-lime-green/20 transition-colors duration-300">
-                <svg className="w-4 h-4 text-selise-lime-green group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                </svg>
+            <span className="flex items-center gap-3 hover:text-selise-lime-green transition-colors duration-300 group animate-fade-in-up animation-delay-1000 bg-white/70 px-4 py-3 rounded-full backdrop-blur-sm border border-white/40 justify-center">
+              <div className="w-8 h-8 bg-selise-lime-green/10 rounded-full flex items-center justify-center group-hover:bg-selise-lime-green/20 transition-colors duration-300 flex-shrink-0">
+                <Smartphone className="w-4 h-4 text-selise-lime-green group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <span className="font-subhead">Mobile‑friendly</span>
+              <span className="font-subhead text-center sm:text-left">Mobile‑friendly</span>
             </span>
           </div>
 
