@@ -37,14 +37,14 @@ export default function Header() {
             >
               Privacy
             </a>
-            <button className="bg-selise-blue text-selise-white px-6 py-2 rounded-xl font-subhead text-sm hover:bg-selise-blue-hover transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-selise-blue focus:ring-offset-2">
+            <button className="bg-selise-blue text-selise-white px-6 py-2 rounded-xl font-subhead text-sm hover:bg-selise-blue-hover transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-selise-blue focus:ring-offset-2 border border-selise-blue-dark hover:border-selise-blue-hover shadow-lg hover:shadow-xl">
               Start Signing
             </button>
           </nav>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button className="bg-selise-blue text-selise-white px-4 py-2 rounded-xl font-subhead text-sm hover:bg-selise-blue-hover transition-all duration-200">
+            <button className="bg-selise-blue text-selise-white px-4 py-2 rounded-xl font-subhead text-sm hover:bg-selise-blue-hover transition-all duration-200 border border-selise-blue-dark hover:border-selise-blue-hover shadow-lg hover:shadow-xl">
               Start Signing
             </button>
           </div>

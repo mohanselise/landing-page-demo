@@ -119,32 +119,6 @@ export default function Testimonials() {
             </div>
           ))}
         </div>
-
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-x-6 rounded-lg bg-selise-blue-light px-6 py-4">
-            <div className="flex -space-x-2">
-              {[...Array(4)].map((_, i) => (
-                <div
-                  key={i}
-                  className="h-8 w-8 rounded-full bg-selise-blue flex items-center justify-center border-2 border-selise-white text-selise-white text-xs font-semibold"
-                >
-                  {String.fromCharCode(65 + i)}
-                </div>
-              ))}
-              <div className="h-8 w-8 rounded-full bg-selise-grey flex items-center justify-center border-2 border-selise-white text-selise-white text-xs font-semibold">
-                +
-              </div>
-            </div>
-            <div className="text-left">
-              <div className="font-subhead font-semibold text-selise-black">
-                Join 10,000+ happy customers
-              </div>
-              <div className="font-body text-sm text-selise-grey">
-                Start your free account today
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
